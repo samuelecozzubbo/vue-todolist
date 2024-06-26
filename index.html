@@ -15,14 +15,18 @@
         <div class="new-task">
             <input type="text" placeholder="Add new task" v-model="newTask.text">
             <button @click="addTask">Add</button>
+            <div class="error" v-if="inputError">
+                <small style="color: red;">Devi inserire una task di almeno 5 caratteri</small>
+            </div>
         </div>
         <div class="task-container">
-            <ul>
+            <ul v-if="tasks.length > 0">
                 <li class="task" v-for="(task,i) in tasks" :key="i" :class="task.done === true ? 'done':''">
                     {{task.text}}
                     <span class="remove-button" @click="deleteTask(i)">&#10005;</span>
                 </li>
             </ul>
+            <h2 v-else>NON CI SONO TASKS</h2>
         </div>
 
     </div>
