@@ -13,7 +13,7 @@
             <img :src="logoImage" alt="logo">
         </div>
         <div class="new-task">
-            <input type="text" placeholder="Add new task" v-model="newTask.text">
+            <input type="text" placeholder="Add new task" v-model="newTask.text" @keyup.enter="addTask">
             <button @click="addTask">Add</button>
             <div class="error" v-if="inputError">
                 <small style="color: red;">Devi inserire una task di almeno 5 caratteri</small>
@@ -22,7 +22,7 @@
         <div class="task-container">
             <ul v-if="tasks.length > 0">
                 <li class="task" v-for="(task,i) in tasks" :key="i" :class="task.done === true ? 'done':''">
-                    {{task.text}}
+                    <span @click="toggleStatus(i)">{{task.text}}</span>
                     <span class="remove-button" @click="deleteTask(i)">&#10005;</span>
                 </li>
             </ul>

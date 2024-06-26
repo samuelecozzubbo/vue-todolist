@@ -48,6 +48,14 @@ createApp( {
             this.newTask.text = "";
             
         },
+        toggleStatus(i){
+            if(this.tasks[i].done === false){
+                this.tasks[i].done = true;
+            }else{
+                this.tasks[i].done = false;
+            }
+            
+        }
     },
     mounted() {
         console.log("the component is now mounted");
