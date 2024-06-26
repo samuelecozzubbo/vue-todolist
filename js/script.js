@@ -21,7 +21,9 @@ createApp( {
         }
     },
     methods: {
-       
+        deleteTask(i){
+            this.tasks.splice(i, 1)
+        },
     },
     mounted() {
         console.log("the component is now mounted");

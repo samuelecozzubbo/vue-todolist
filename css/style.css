@@ -24,3 +24,7 @@ img{
     text-decoration: line-through;
     color: darkgray;
 }
+
+.remove-button{
+    cursor: pointer;
+}

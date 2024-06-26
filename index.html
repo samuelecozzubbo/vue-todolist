@@ -20,7 +20,7 @@
             <ul>
                 <li class="task" v-for="(task,i) in tasks" :key="i" :class="task.done === true ? 'done':''">
                     {{task.text}}
-                    <span>&#10005;</span>
+                    <span class="remove-button" @click="deleteTask(i)">&#10005;</span>
                 </li>
             </ul>
         </div>
