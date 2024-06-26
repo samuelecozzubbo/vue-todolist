@@ -10,7 +10,7 @@
 <body>
     <div id="app" class="container">
         <div class="logo">
-            <img src="img/logo.jpg" alt="">
+            <img :src="logoImage" alt="logo">
         </div>
         <div class="new-task">
             <input type="text" placeholder="Add new task">
@@ -18,7 +18,10 @@
         </div>
         <div class="task-container">
             <ul>
-                <li>task1</li>
+                <li class="task" v-for="(task,i) in tasks" :key="i" :class="task.done === true ? 'done':''">
+                    {{task.text}}
+                    <span>&#10005;</span>
+                </li>
             </ul>
         </div>
 
